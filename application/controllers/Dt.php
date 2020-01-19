@@ -18,6 +18,18 @@ class Dt extends CI_Controller
             ->set_output($this->datatables->generate('json', 'UTF-8', true));
     }
 
+    public function user()
+    {
+        $this->datatables->select('A.id as id, A.username, A.role, B.nama, B.kelas, B.nomor_kontak')
+                ->from('users as A')
+                ->join('user_details as B', 'A.id = B.user_id');
+
+        $this->output
+            ->set_content_type('application/json')
+            ->set_status_header(200)
+            ->set_output($this->datatables->generate('json', 'UTF-8', true));
+    }
+
     public function history()
     {
         $this->datatables->select('A.id as id, B.kategori, B.judul_buku, B.pengarang, A.created_at as tanggal')

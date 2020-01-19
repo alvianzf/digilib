@@ -56,3 +56,5 @@ $route['translate_uri_dashes'] = TRUE;
 $route['beranda']                   = 'dashboard';
 $route['input-data-buku']           = 'books/input';
 $route['detil-buku/(:any)']         = 'books/detil/$1';
+$route['register']                  = 'profile/register';
+$route['daftar-pengguna']           = 'profile/list';

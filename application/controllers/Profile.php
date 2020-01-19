@@ -32,4 +32,22 @@ class Profile extends MY_Controller
         $this->data['userdata'] = $this->session->userdata['user_detail'];
         
     }
+
+
+    /**
+     * Halaman Register pengguna baru
+     */
+    public function register()
+    {
+        
+    }
+
+
+    /**
+     * Halaman daftar pengguna
+     */
+    public function list()
+    {
+        
+    }
 }

@@ -52,30 +52,33 @@ class Auth extends REST_Controller
 
         $data = [
             'username'  => $user,
-            'password'  => $pass,
+            'password'  => hash('sha1', $pass),
+            'role'      => 'user',
             'created_at'=> $created_at
         ];
 
         if ($this->user_model->insert($data)) {
-            return $this->response(true, 200);
+            $id = $this->db->insert_id();
+
+            return $this->response($id, 200);
         }
 
         return $this->response(false, 500);
 
     }
 
-    public function add_employee_post($id)
+    public function user_detail_post($id)
     {
-        $name           = $this->post('name');
-        $position       = $this->post('position');
-        $contact_number = $this->post('contact_number');
+        $nama           = $this->post('nama');
+        $kelas          = $this->post('kelas');
+        $nomor_kontak   = $this->post('nomor_kontak');
         $created_at     = time();
 
         $data = [
             'user_id'       => $id,
-            'name'          => $name,
-            'position'      => $position,
-            'contact_number'=> $contact_number,
+            'nama'          => $nama,
+            'kelas'         => $kelas,
+            'nomor_kontak'  => $nomor_kontak,
             'created_at'    => $created_at
         ];
 
@@ -84,5 +87,20 @@ class Auth extends REST_Controller
         }
 
         return $this->response(false, 500);
+    }
+
+
+    public function delete_user_post()
+    {
+        $id = $this->post('id');
+
+        if ($this->user_model->delete($id)){
+            $user_id = $this->user_data_model->get_by('user_id', $id)->id;
+            if ($this->user_data_model->delete($user_id)) {
+                return $this->response(api_success($id), 200);
+            }
+            return $this->response(api_error($id), 500);
+        }
+        return $this->response(api_error($id), 500);
     }
 }

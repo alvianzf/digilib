@@ -31,6 +31,14 @@ class Books extends MY_Controller
         
     }
 
+    /**
+     * Halaman Input Data Buku
+     */
+    public function data_buku()
+    {
+        
+    }
+
 
     /**
      * Halaman Detil Buku

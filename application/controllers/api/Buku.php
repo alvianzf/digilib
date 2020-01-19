@@ -65,4 +65,19 @@ class Buku extends REST_Controller
 
         return $this->response(api_error($data), 500);
     }
+
+
+
+    /**
+     * Menghapus data buku
+     */
+    function delete_buku_post() {
+        $id = $this->post('id');
+
+        if ($this->buku_model->delete($id)) {
+            return $this->response(api_success($id), 200);
+        }
+
+        return $this->response(api_error($id), 500);
+    } 
 }

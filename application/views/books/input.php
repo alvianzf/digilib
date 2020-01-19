@@ -154,7 +154,7 @@ $('#simpan').click(() => {
 });
 
 $('#cari').click(() => {
-    window.location.href="<?= base_url('cari') ?>"
+    window.location.href="<?= base_url('books/data_buku') ?>"
 })
 </script>
 
