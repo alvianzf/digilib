@@ -7,6 +7,10 @@ class User_Model extends MY_Model
         'user_data' => [
             'primary_key' => 'user_id',
             'model'       => 'user_data_model'
+        ],
+        'history' => [
+            'primary_key' => 'user_id',
+            'model'       => 'history_model'
         ]
     ];
 

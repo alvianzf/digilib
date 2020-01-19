@@ -29,7 +29,7 @@
     </div>
     <div class="col-md-4">
         <center>
-            <a href="<?= base_url($buku->path) ?>" target="_blank" class="text-success" style="font-size: 2em;" download>
+            <a onclick="countDownload(<?= $buku->id ?>)" target="_blank" class="text-success" style="font-size: 2em;" download>
                 <i class="fas fa-download"></i>
                 <p>Download PDF</p>
             </a>
@@ -41,6 +41,17 @@
 <p style="text-align: justify">
     <?= $buku->ringkasan ?>
 </p>
+
+<script>
+
+function countDownload(id) {
+    $.post("<?= api('buku/history') . $buku->id ?>")
+    .then(res => {
+        console.log(res)
+    })
+}
+
+</script>
 
 <style>
 

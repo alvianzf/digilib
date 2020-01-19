@@ -40,6 +40,7 @@ class Books extends MY_Controller
         $data = $this->buku_model->get($id);
 
         $this->data['buku'] = $data;
+        $this->data['books'] = json_encode($data);
         
     }
 }

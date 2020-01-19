@@ -26,7 +26,7 @@
       <i class="fas fa-user-circle fa-fw"></i>
     </a>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-      <a class="dropdown-item" href="#"><i class="fa fa-fw fa-cog"></i> Pengaturan</a>
+      <a class="dropdown-item" href="<?= base_url('profile') ?>"><i class="fa fa-fw fa-cog"></i> Pengaturan</a>
       <div class="dropdown-divider"></div>
       <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-fw fa-lock"></i> Logout</a>
     </div>
