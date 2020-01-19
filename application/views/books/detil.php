@@ -31,8 +31,11 @@
         <center>
             <a onclick="countDownload(<?= $buku->id ?>)" target="_blank" class="text-success" style="font-size: 2em;" download>
                 <i class="fas fa-download"></i>
-                <p>Download PDF</p>
+                <p>Unduh PDF</p>
             </a>
+            <p>Telah diunduh sebanyak: <span id="count" class="text-info"></span> kali</p>
+            <p>Terakhir diunduh pada: <span id="terakhir" class="text-success"></span></p>
+            <p>Pada Jam: <span id="jam" class="text-success"></span></p>
         </center>
     </div>
 </div>
@@ -47,9 +50,21 @@
 function countDownload(id) {
     $.post("<?= api('buku/history') . $buku->id ?>")
     .then(res => {
-        console.log(res)
+        window.location.reload(false)
     })
 }
+
+$.get("<?= api('buku/download') . $buku->id ?>")
+.then(res => {
+    $('#count').text(res.result.count);
+    $('#terakhir').text(res.result.last);
+    $('#jam').text(res.result.time);
+}).catch(err => {
+
+    $('#count').html('<span class="text-danger">0</span>');
+    $('#terakhir').html('<span class="text-danger">Belum pernah diunduh</span>');
+    $('#jam').html('<span class="text-danger">-</span>');
+})
 
 </script>
 

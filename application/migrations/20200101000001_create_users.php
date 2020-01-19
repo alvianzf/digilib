@@ -110,7 +110,7 @@ class Migration_Create_Users extends CI_Migration
                             'id'        => 2,
                             'user_id'   => 2,
                             'nama'      => 'John Appleseed',
-                            'kelas'  => 'Admin',
+                            'kelas'     => 'X Mesin 1',
                             'nomor_kontak'  => '0878782881021',
                             'created_at'=> time()
                         ]
@@ -122,7 +122,7 @@ class Migration_Create_Users extends CI_Migration
 
     public function down()
     {
-        $this->dbforge->drop_table('users');
-        $this->dbforge->drop_table('user_details');
+        $this->dbforge->drop_table('users',true);
+        $this->dbforge->drop_table('user_details',true);
     }
 }

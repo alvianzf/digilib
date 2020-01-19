@@ -22,9 +22,13 @@
 
 </head>
 
-<body class="bg-dark">
+<!-- <body class="bg-dark"> -->
+  <body class="bg-lib">
 
   <div class="container">
+    <center>
+      <img src="<?= base_url('assets/img/smk3.gif') ?>" width="20%">
+    </center>
     <div class="card card-login mx-auto mt-5">
       <div class="card-header"><i class="fa fa-lock-open"></i> Perpustakaan Digital SMK N 3 Tanjungpinang</div>
       <div class="card-body">
@@ -101,3 +105,18 @@ function login(args) {
 </script>
 
 </html>
+
+<style>
+
+  .bg-lib {
+    background-image: url("<?= base_url('assets/img/bg.jpg') ?>");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #cccccc;
+  }
+
+  .container {
+    margin-top: 5%;
+  }
+
+</style>

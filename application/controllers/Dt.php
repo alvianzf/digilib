@@ -30,11 +30,12 @@ class Dt extends CI_Controller
             ->set_output($this->datatables->generate('json', 'UTF-8', true));
     }
 
-    public function history()
+    public function history($id)
     {
         $this->datatables->select('A.id as id, B.kategori, B.judul_buku, B.pengarang, A.created_at as tanggal')
                 ->from('history as A')
-                ->join('data_buku as B', 'A.book_id = B.id');
+                ->join('data_buku as B', 'A.book_id = B.id')
+                ->where('user_id', $id);
 
         $this->output
             ->set_content_type('application/json')

@@ -4,7 +4,7 @@
 <hr />
 
 <div class="table-responsive">
-    <table id="table" class="table table-striped">
+    <table id="table" class="table table-striped" width="100%">
         <thead>
             <th>Tanggal</th>
             <th>Judul Buku</th>
@@ -27,7 +27,7 @@ $(document).ready(function() {
                     info: 'Menunjukkan _START_ sampai _END_ dari total _TOTAL_ data'
                 },
                 ajax: {
-                    url: "<?= site_url('dt/history')?>",
+                    url: "<?= site_url('dt/history/') . $id?>",
                     type: "POST",
                 },
                 columnDefs: [{

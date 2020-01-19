@@ -27,6 +27,6 @@ class History extends MY_Controller
      */
     public function index()
     {
-        
+        $this->data['id'] = $this->session->userdata['user_detail']->id;
     }
 }

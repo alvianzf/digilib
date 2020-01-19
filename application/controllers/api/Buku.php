@@ -80,4 +80,15 @@ class Buku extends REST_Controller
 
         return $this->response(api_error($id), 500);
     } 
+
+    /**
+     * Hitung jumlah download
+     */
+    public function download_get($id)
+    {
+        $count = $this->history_model->count_by('book_id', $id);
+        $last  = $this->history_model->limit(1, 0)->order_by('id', 'desc')->get_many_by('book_id', $id);
+
+        return $this->response(api_success(['count' => $count, 'last' => date('d F Y', $last[0]->created_at), 'time' => date('H:i:s', $last[0]->created_at)]), 200);
+    }
 }

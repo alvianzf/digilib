@@ -19,6 +19,7 @@
       <span>History</span></a>
   </li>
 
+  <?php if ($this->session->userdata['user_detail']->role == 'admin') { ?>
 
 
   <li class="nav-item dropdown">
@@ -43,4 +44,6 @@
       <a class="dropdown-item" href="<?= base_url('daftar-pengguna') ?>"><i class="fa fa-list"> </i> Daftar Pengguna</a>
     </div>
   </li>
+
+  <?php } ?>
 </ul>
