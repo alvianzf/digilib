@@ -49,7 +49,7 @@ $(document).ready(function() {
                     searchable: true,
                     orderable: true,
                     render: function(data) {
-                        return `<a href="<?= base_url('buku/detil/') ?>${data.id}">${data.judul_buku}</a>`
+                        return `<a href="<?= base_url('buku/detil-buku/') ?>${data.id}">${data.judul_buku}</a>`
                     }
                 },
                 {
