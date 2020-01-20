@@ -57,9 +57,7 @@ class Auth extends REST_Controller
             'created_at'=> $created_at
         ];
 
-        $existing = $this->user_model->get_by('username', $user);
-
-        if (!$existing) {
+        if (!$this->user_model->get_by('username', $user)) {
             if ($this->user_model->insert($data)) {
                 $id = $this->db->insert_id();
     

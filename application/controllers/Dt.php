@@ -23,7 +23,8 @@ class Dt extends CI_Controller
     {
         $this->datatables->select('A.id as id, A.username, A.role, B.nama, B.kelas, B.nomor_kontak')
                 ->from('users as A')
-                ->join('user_details as B', 'A.id = B.user_id');
+                ->join('user_details as B', 'A.id = B.user_id')
+                ->where('role', 'user');
 
         $this->output
             ->set_content_type('application/json')

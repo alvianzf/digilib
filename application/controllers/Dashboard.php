@@ -27,7 +27,7 @@ class Dashboard extends MY_Controller
      */
     public function index()
     {
-        $this->data['jumlah_pengguna']  = $this->user_model->count_by('role', 'user');
+        $this->data['jumlah_pengguna']  = $this->user_model->count_by(['role' => 'user']);
         $this->data['jumlah_buku']      = count($this->buku_model->get_all());
         $this->data['jumlah_unduhan']   = count($this->history_model->get_all());
 

@@ -93,13 +93,13 @@
     const password      = $('#password').val();
 
      if (validateData(username, "Username") && validateData(password, "Password")) {
-        if (validateData(nama, 'nama') && validateData(kelas, 'kelas') && validateNumber(nomor_kontak, 'Nomor Kontak')) {
+        if (validateData(nama, 'Nama') && validateData(kelas, 'Nelas') && validateNumber(nomor_kontak, 'Nomor Kontak')) {
             const data = {nama, kelas, nomor_kontak}
             const user = {username, password}
 
             $.post("<?= api('auth/register')?>", user)
             .then(res => {
-                if (res.result.success) {
+                if (res.success) {
                     toastr.success(res.result.message);
                     $.post("<?= api('auth/user_detail') ?>" + res.result.id, data)
                     .then(response => {

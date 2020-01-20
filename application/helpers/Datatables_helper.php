@@ -19,15 +19,17 @@ if (! function_exists('last_downloaded')) {
     function last_downloaded($book_id) {
         $that = get_instance();
 
-        return date('d M Y', $that->history_model->order_by('id', 'desc')->get_by('book_id', $book_id)->created_at);
+        $books =  $that->history_model->order_by('id', 'desc')->get_by('book_id', $book_id) ;
+
+        return $books ? date('d M Y', $that->history_model->order_by('id', 'desc')->get_by('book_id', $book_id)->created_at) : null;
     }
 }
 
 if (! function_exists('downloaded_by')) {
     function downloaded_by($book_id) {
         $that = get_instance();
-
-        $user_id = $that->history_model->order_by('id', 'desc')->get_by('book_id', $book_id)->user_id;
-        return $that->user_data_model->get_by('user_id', $user_id)->nama;
+        $books = $that->history_model->order_by('id', 'desc')->get_by('book_id', $book_id);
+        $user_id = @ $books ? $that->history_model->order_by('id', 'desc')->get_by('book_id', $book_id)->user_id : null;
+        return $user_id ? $that->user_data_model->get_by('user_id', $user_id)->nama : null;
     }
 }
