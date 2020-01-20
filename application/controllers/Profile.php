@@ -46,7 +46,7 @@ class Profile extends MY_Controller
     /**
      * Halaman daftar pengguna
      */
-    public function list()
+    public function daftar()
     {
         
     }

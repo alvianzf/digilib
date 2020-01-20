@@ -58,5 +58,5 @@ $route['buku/input-data-buku']      = 'books/input';
 $route['buku/detil-buku/(:any)']    = 'books/detil/$1';
 $route['buku/data-buku']            = 'books/data_buku';
 $route['pengguna/register']         = 'profile/register';
-$route['pengguna/daftar-pengguna']  = 'profile/list';
-$route['pengguna/pengaturan']                = 'profile';
+$route['pengguna/daftar-pengguna']  = 'profile/daftar';
+$route['pengguna/pengaturan']       = 'profile';
