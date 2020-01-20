@@ -40,7 +40,7 @@
                     </tr>
                     <tr>
                         <td>Unduhan Terakhir</td>
-                        <td style="text-align: right;" ><a href="<?= base_url('buku/detil-buku/' . ($buku_terakhir ? $buku_terakhir->id : null))?>" class="text-success"><?= $buku_terakhir ? $buku_terakhir->judul_buku : '-'?></a>, pada tanggal <?= $last_download ? $last_download : '-' ?> jam <?= $time_download ? $time_download : '-' ?></span></td>
+                        <td style="text-align: right;" ><a href="<?= $buku_terakhir ? base_url('buku/detil-buku/' . ($buku_terakhir ? $buku_terakhir->id : null)) : base_url('cari'); ?>" class="text-success"><?= $buku_terakhir ? $buku_terakhir->judul_buku : '-'?></a>, pada tanggal <?= $last_download ? $last_download : '-' ?> jam <?= $time_download ? $time_download : '-' ?></span></td>
                     </tr>
                     <tr>
                         <td>Total Unduhan</td>
