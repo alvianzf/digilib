@@ -28,8 +28,8 @@ class Dashboard extends MY_Controller
     public function index()
     {
         $this->data['jumlah_pengguna']  = $this->user_model->count_by('role', 'user');
-        $this->data['jumlah_buku']      = $this->buku_model->count_by('id', !0);
-        $this->data['jumlah_unduhan']   = $this->history_model->count_by('id', !0);
+        $this->data['jumlah_buku']      = count($this->buku_model->get_all());
+        $this->data['jumlah_unduhan']   = count($this->history_model->get_all());
 
         $user_data = $this->session->userdata['user_detail']->user_data[0];
         $time = @$this->history_model->order_by('id', 'desc')->get_by('user_id', $user_data->user_id)->created_at;
