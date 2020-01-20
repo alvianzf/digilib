@@ -32,11 +32,13 @@ class Dashboard extends MY_Controller
         $this->data['jumlah_unduhan']   = $this->history_model->count_by('id', !0);
 
         $user_data = $this->session->userdata['user_detail']->user_data[0];
+        $time = @$this->history_model->order_by('id', 'desc')->get_by('user_id', $user_data->user_id)->created_at;
 
         $this->data['nama']             = $user_data->nama;
-        $this->data['last_download']    = date('d M Y', $this->history_model->order_by('id', 'desc')->get_by('user_id', $user_data->user_id)->created_at);
-        $this->data['time_download']    = date('H:i:s', $this->history_model->order_by('id', 'desc')->get_by('user_id', $user_data->user_id)->created_at);
-        $this->data['buku_terakhir']   = $this->buku_model->get($this->history_model->order_by('id', 'desc')->get_by('user_id', $user_data->user_id)->book_id);
-        $this->data['total_download']  = $this->history_model->count_by('user_id', $user_data->user_id);
+        $this->data['last_download']    = $time ? date('d M Y', @$time) : null;
+        $this->data['time_download']    = $time ? date('H:i', @$time) : null;
+        $this->data['buku_terakhir']    = @$this->buku_model->get($this->history_model->order_by('id', 'desc')->get_by('user_id', $user_data->user_id)->book_id);
+
+        $this->data['total_download']  = @$this->history_model->count_by('user_id', $user_data->user_id);
     }
 }
