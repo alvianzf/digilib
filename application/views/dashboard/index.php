@@ -40,7 +40,7 @@
                     </tr>
                     <tr>
                         <td>Unduhan Terakhir</td>
-                        <td style="text-align: right;" class="text-primary"><?= $last_download ?></td>
+                        <td style="text-align: right;" ><a href="<?= base_url('buku/detil-buku/' . $buku_terakhir->id)?>" class="text-success"><?= $buku_terakhir->judul_buku?></a>, pada tanggal <?= $last_download ?> jam <?= $time_download ?></span></td>
                     </tr>
                     <tr>
                         <td>Total Unduhan</td>

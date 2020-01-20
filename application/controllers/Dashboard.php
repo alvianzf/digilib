@@ -35,6 +35,8 @@ class Dashboard extends MY_Controller
 
         $this->data['nama']             = $user_data->nama;
         $this->data['last_download']    = date('d M Y', $this->history_model->order_by('id', 'desc')->get_by('user_id', $user_data->user_id)->created_at);
+        $this->data['time_download']    = date('H:i:s', $this->history_model->order_by('id', 'desc')->get_by('user_id', $user_data->user_id)->created_at);
+        $this->data['buku_terakhir']   = $this->buku_model->get($this->history_model->order_by('id', 'desc')->get_by('user_id', $user_data->user_id)->book_id);
         $this->data['total_download']  = $this->history_model->count_by('user_id', $user_data->user_id);
     }
 }
