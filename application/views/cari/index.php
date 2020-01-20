@@ -19,7 +19,7 @@
             <th>Judul Buku</th>
             <th>Kategori</th>
             <th>Nama Pengarang</th>
-            <th></th>
+            <th><i class="fa fa-cog"></i></th>
         </thead>
     </table>
 </div>
