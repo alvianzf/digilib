@@ -11,7 +11,7 @@
             <th>Kelas</th>
             <th>Nomor Kontak</th>
             <th>Role</th>
-            <th></th>
+            <th><i class="fa fa-cog"></i></th>
         </thead>
     </table>
 </div>
@@ -75,13 +75,24 @@ $(document).ready(function() {
 });
 
 function deleteUser(id) {
-    $.post('<?= api('auth/delete_user') ?>', {id})
-    .then(res => {
-        toastr.success('berhasil menghapus data');
-        window.location.reload(true);
-    }).catch(err => {
-        toastr.error('Gagal menghapus data');
-    })
+    toastr.error("<br /><button type='button' value='yes' class='btn btn-danger'>Ya</button><button type='button' class='btn btn-primary-inverse' value='no' >Tidak</button>",'Hapus data ini?',
+    {
+        allowHtml: true,
+        onclick: function (toast) {
+            value = toast.target.value
+            if (value == 'yes') {
+                $.post('<?= api('auth/delete_user') ?>', {id})
+                .then(res => {
+                    $('.toastr').remove()
+                    toastr.success('Berhasil menghapus data');
+                    window.location.reload(true);
+                }).catch(err => {
+                })
+            } else {
+                $('.toastr').remove();
+            }
+        }
+    });
 }
 
 </script>

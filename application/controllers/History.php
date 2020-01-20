@@ -15,7 +15,7 @@ class History extends MY_Controller
         parent::__construct();
 
         if (!@$this->session->userdata['is_logged_in']) {
-            redirect('/auth', refresh);
+            redirect('/auth', 'refresh');
         }
 
         $this->load->model(['user_model', 'history_model', 'buku_model']);

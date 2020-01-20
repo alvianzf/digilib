@@ -16,7 +16,7 @@ class Cari extends MY_Controller
         parent::__construct();
 
         if (!@$this->session->userdata['is_logged_in']) {
-            redirect('/auth', refresh);
+            redirect('/auth', 'refresh');
         }
     }
 

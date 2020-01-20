@@ -99,21 +99,27 @@
 
             $.post("<?= api('auth/register')?>", user)
             .then(res => {
-                toastr.success('Berhasil menambahkan pengguna');
+                if (res.result.success) {
+                    toastr.success(res.result.message);
+                    $.post("<?= api('auth/user_detail') ?>" + res.result.id, data)
+                    .then(response => {
+                        toastr.success('Berhasil menambahkan biodata pengguna');
+                        $('#nama').val('');
+                        $('#kelas').val('');
+                        $('#nomor_kontak').val('');
+                        $('#username').val('');
+                        $('#password').val('');
+                    })
+                    .catch(err => {
+                        console.log(err);
+                        toastr.error('Gagal melakukan update data')
+                    })
+                } else {
+                    toastr.error(res.error.message, 'Peringatan!')
+                }
 
-                $.post("<?= api('auth/user_detail') ?>" + res, data)
-                .then(response => {
-                    toastr.success('Berhasil menambahkan biodata pengguna');
-                    $('#nama').val('');
-                    $('#kelas').val('');
-                    $('#nomor_kontak').val('');
-                    $('#username').val('');
-                    $('#password').val('');
-                })
-                .catch(err => {
-                    console.log(err);
-                    toastr.error('Gagal melakukan update data')
-                })
+            }).catch(err => {
+                console.log(err)
             })
         }
     }

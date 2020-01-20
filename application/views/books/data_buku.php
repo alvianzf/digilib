@@ -3,12 +3,12 @@
 <hr />
 
 <div class="table-responsive">
-    <table class="table" id="table">
+    <table class="table" id="table" width="100%">
         <thead>
             <th>Judul Buku</th>
             <th>Kategori Buku</th>
             <th>Pengarang</th>
-            <th><i class="fa fa-cog"></i></th>
+            <th width="10%" style="text-align: center;"><i class="fa fa-cog"></i></th>
         </thead>
     </table>
 </div>
@@ -51,10 +51,13 @@ $(document).ready(function() {
                 },
                 {
                     data: 'id',
+                    className: 'dt-body-center',
                     render: (id) => {
                         return `
-                        <a href="<?=base_url()?>detil-buku/${id}"><i class="fa fa-search text-info"></i></a> | 
-                        <a onclick="deleteBuku(${id})"><i class="fa fa-trash text-danger"></i></a>`
+                        <center>
+                            <a href="<?=base_url('buku/detil-buku/')?>${id}"><i class="fa fa-search text-info"></i></a> | 
+                            <a href="#" onclick="deleteBuku(${id})"><i class="fa fa-trash text-danger"></i></a>
+                        </center>`
                     }
                 },
 
@@ -63,12 +66,23 @@ $(document).ready(function() {
 });
 
 function deleteBuku(id) {
-    $.post('<?= api('buku/delete_buku') ?>', {id})
-    .then(res => {
-        toastr.success('berhasil menghapus data buku');
-        window.location.reload(true);
-    }).catch(err => {
-        toastr.error('Gagal menghapus data');
-    })
+    toastr.error("<br /><button type='button' value='yes' class='btn btn-danger'>Ya</button><button type='button' class='btn btn-primary-inverse' value='no' >Tidak</button>",'Hapus buku ini?',
+    {
+        allowHtml: true,
+        onclick: function (toast) {
+            value = toast.target.value
+            if (value == 'yes') {
+                $.post('<?= api('buku/delete_buku') ?>', {id})
+                .then(res => {
+                    toastr.success('berhasil menghapus data buku');
+                    window.location.reload(true);
+                }).catch(err => {
+                    toastr.error('Gagal menghapus data');
+                })
+            } else {
+                $('.toastr').remove();
+            }
+        }
+    });
 }
 </script>

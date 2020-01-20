@@ -6,7 +6,7 @@ class Auth extends MY_Controller
     {
         parent::__construct();
         if (@$this->session->userdata['is_logged_in']) {
-            redirect('beranda', refresh);
+            redirect('beranda', 'refresh');
         }
     }
 

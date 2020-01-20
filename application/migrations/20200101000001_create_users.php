@@ -35,7 +35,7 @@ class Migration_Create_Users extends CI_Migration
                     'null'          => false
                 ]
             ]);
-            if ($this->dbforge->create_table('users', true)) {
+            if ($this->dbforge->create_table('users')) {
                 $this->db->insert_batch(
                     'users',
                     [
@@ -94,7 +94,7 @@ class Migration_Create_Users extends CI_Migration
                     'null'          => false
                 ]
             ]);
-            if ($this->dbforge->create_table('user_details', true)) {
+            if ($this->dbforge->create_table('user_details')) {
                 $this->db->insert_batch(
                     'user_details',
                     [
@@ -109,7 +109,7 @@ class Migration_Create_Users extends CI_Migration
                         [
                             'id'        => 2,
                             'user_id'   => 2,
-                            'nama'      => 'John Appleseed',
+                            'nama'      => 'Erin B',
                             'kelas'     => 'X Mesin 1',
                             'nomor_kontak'  => '0878782881021',
                             'created_at'=> time()

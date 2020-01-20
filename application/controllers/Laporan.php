@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit ('No direct script access allowed!');
 
-class Dashboard extends MY_Controller
+class Laporan extends MY_Controller
 {
     protected $asides = [
         'header'  => 'asides/header',
@@ -17,6 +17,8 @@ class Dashboard extends MY_Controller
         if (!@$this->session->userdata['is_logged_in']) {
             redirect('/auth', 'refresh');
         }
+
+        $this->load->model(['user_model', 'history_model', 'buku_model']);
     }
 
 

@@ -61,7 +61,7 @@ class Migration_Create_Books extends CI_Migration
                 ]
             );
 
-            $this->dbforge->create_table('data_buku', true);
+            $this->dbforge->create_table('data_buku');
         }
 
     }

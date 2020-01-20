@@ -54,7 +54,9 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
 
 $route['beranda']                   = 'dashboard';
-$route['input-data-buku']           = 'books/input';
-$route['detil-buku/(:any)']         = 'books/detil/$1';
-$route['register']                  = 'profile/register';
-$route['daftar-pengguna']           = 'profile/list';
+$route['buku/input-data-buku']      = 'books/input';
+$route['buku/detil-buku/(:any)']    = 'books/detil/$1';
+$route['buku/data-buku']            = 'books/data_buku';
+$route['pengguna/register']         = 'profile/register';
+$route['pengguna/daftar-pengguna']  = 'profile/list';
+$route['pengguna/pengaturan']                = 'profile';

@@ -32,7 +32,7 @@ class Migration_create_history extends CI_Migration
                 ]
             );
 
-            $this->dbforge->create_table('history', true);
+            $this->dbforge->create_table('history');
         }
 
     }

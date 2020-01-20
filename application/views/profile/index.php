@@ -121,10 +121,10 @@
      const username = $('#username').val();
      const password = $('#password').val();
 
+     const data = {username, password}
      if (validateData(username, "Username") && validateData(password, "Password")) {
-        const data = {username, password}
 
-        $.post("<?= api('profile/user') . $userdata->id ?>")
+        $.post("<?= api('profile/user') . $userdata->id ?>", data)
         .then(res => {
             toastr.success('Berhasil mengubah data');
             $('#nama-user').text(username);

@@ -57,13 +57,19 @@ class Auth extends REST_Controller
             'created_at'=> $created_at
         ];
 
-        if ($this->user_model->insert($data)) {
-            $id = $this->db->insert_id();
+        $existing = $this->user_model->get_by('username', $user);
 
-            return $this->response($id, 200);
+        if (!$existing) {
+            if ($this->user_model->insert($data)) {
+                $id = $this->db->insert_id();
+    
+                return $this->response(api_success(['id' => $id, 'message' => 'User berhasil dibuat']), 200);
+            }
+            return $this->response(api_error('Terjadi kesalahan di server!'), 500);
+        } else {
+            return $this->response(api_error(['message' => 'User sudah ada!']));
         }
 
-        return $this->response(false, 500);
 
     }
 

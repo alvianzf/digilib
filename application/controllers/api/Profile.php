@@ -40,7 +40,7 @@ class Profile extends REST_Controller
     {
         $data = [
             'username'              => $this->post('username'),
-            'password'             => hash('sha1', $this->post('password')),
+            'password'              => hash('sha1', $this->post('password')),
         ];
 
         if ($this->user_model->update($user_id, $data)){

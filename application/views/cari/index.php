@@ -62,7 +62,7 @@ $(document).ready(function() {
                 {
                     data: null,
                     render: function(data) {
-                        return `<a href="<?= base_url('detil-buku/') ?>${data.id}"><i class="fa fa-search"></i></a>`
+                        return `<a href="<?= base_url('buku/detil-buku/') ?>${data.id}"><i class="fa fa-search"></i></a>`
                     }
                 }
 
