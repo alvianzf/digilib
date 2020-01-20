@@ -19,8 +19,7 @@ if (! function_exists('last_downloaded')) {
     function last_downloaded($book_id) {
         $that = get_instance();
 
-        $user_id = $that->history_model->order_by('id', 'desc')->get_by('book_id', $book_id)->user_id;
-        return date('d M Y', $that->user_data_model->get_by('user_id', $user_id)->created_at);
+        return date('d M Y', $that->history_model->order_by('id', 'desc')->get_by('book_id', $book_id)->created_at);
     }
 }
 
