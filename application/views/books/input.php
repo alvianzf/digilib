@@ -73,11 +73,12 @@
             </div>
             <div class="col-md-3 col-sm-12">
                 Upload Cover :
+                <p class="text-muted">Ukuran maksimal <strong>10 MB</strong>. Ekstensi png, jpg, atau jpeg</p>
                 <input type="file" id="cover">
                 <hr />
 
-                Input file pdf:
-        
+                Input File pdf:
+                <p class="text-muted">Ukuran maksimal <strong>10 MB</strong>. Ekstensi PDF</p>
                 <input type="file" id="pdf">
 
             </div>
