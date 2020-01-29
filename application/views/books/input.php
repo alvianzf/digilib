@@ -73,12 +73,12 @@
             </div>
             <div class="col-md-3 col-sm-12">
                 Upload Cover :
-                <input type="file" id="cover" class="form-control">
+                <input type="file" id="cover">
                 <hr />
 
                 Input file pdf:
         
-                <input type="file" id="pdf" class="form-control">
+                <input type="file" id="pdf">
 
             </div>
             <div class="col-md-3 col-sm-12">
@@ -103,14 +103,41 @@ $(document).ready(function() {
 $('#cover').change(() => {
     const file = $('#cover')[0].files[0]
 
-    var reader = new FileReader();
+    if (file.size <= 10000000) {
+        if (file.type == 'image/jpeg' || file.type == 'image/png') {
+            var reader = new FileReader();
 
-    reader.onload = e => {
-        $('#cover-data').html(`<img src="${e.target.result}" width="100%">`);
+            reader.onload = e => {
+                $('#cover-data').html(`<img src="${e.target.result}" width="100%">`);
+            }
+            
+            reader.readAsDataURL(file)
+        } else {
+            toastr.error('Harap masukkan gambar dengan ekstensi jpg, jpeg, atau png', 'Tipe file salah');
+            $('#cover').val('')
+            file = null;
+        }
+    } else {
+        toastr.error('Silahkan masukkan pdf maksimal 10MB');
+        $('#cover').val('')
+        file = null
     }
-    
-    reader.readAsDataURL(file)
+
 });
+
+$('#pdf').change(() => {
+    if ($('#pdf')[0].files[0].size >= 10000000) {
+        toastr.error('Harap masukkan file berukuran maksimal 10 MB', 'Ukuran terlalu besar');
+        $('#pdf')[0].files[0] = null;
+        $('#pdf').val('')
+    }
+
+    if ($('#pdf')[0].files[0].type != 'application/pdf') {
+        toastr.error('Harap masukkan file dengan ekstensi pdf', 'Tipe file salah');
+        $('#pdf')[0].files[0] = null
+        $('#pdf').val('')
+    }
+})
 
 $('#simpan').click(() => {
     const judul_buku    = $('#judul_buku').val();
@@ -121,6 +148,7 @@ $('#simpan').click(() => {
     const data = {judul_buku, kategori, pengarang}
 
     const cover = $('#cover')[0].files[0];
+
     const pdf   = $('#pdf')[0].files[0];
 
     var form_data   = new FormData();

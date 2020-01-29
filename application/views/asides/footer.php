@@ -29,7 +29,6 @@
 
 <style>
 /* Custom CSS by me */
-
 .toast-error {
   background-color: red;
 }

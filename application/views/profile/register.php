@@ -67,7 +67,7 @@
             </div>
             <div class="col-md-10 col-sm-12">
                 <div class="form-label-group">
-                    <input type="password" id="password" class="form-control" placeholder="Password" required>
+                    <input type="password" id="password" class="form-control" placeholder="********" required>
                     <label for="password">Password</label>
                 </div>
             </div>
