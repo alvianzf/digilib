@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-2">
                 <div class="thumbnail-box" id="cover-data">
-                    <a href="<?= base_url($buku->foto_cover_path) ?>" target="_blank">
+                    <a href="<#" data-toggle="modal" data-target="#coverModal">
                         <img src="<?= base_url($buku->foto_cover_path) ?>" width="100%" class="thumbnail">
                     </a>
                 </div>
@@ -52,6 +52,25 @@
     </div>
 </div>
 
+<div class="modal fade" id="coverModal" tabindex="-1" role="dialog" aria-labelledby="coverModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><strong><?= $buku->judul_buku ?></strong></h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body cover-modal">
+            <img src="<?= base_url($buku->foto_cover_path) ?>" class="cover-photo" />
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Keluar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <script>
 
 function countDownload(id) {
@@ -87,6 +106,14 @@ $.get("<?= api('buku/download') . $buku->id ?>")
         padding: 5px;
         position: relative;
         text-align: center;
+    }
+
+    .cover-modal {
+        display: flex;
+    }
+
+    .cover-photo {
+        flex: 1;
     }
 
     .thumbnail {
