@@ -69,7 +69,7 @@
           </li>
           <li class="nav-item p-0">
             <a class="nav-link" rel="tooltip" title="Manajemen Pengguna" data-placement="bottom" href="<?= base_url('pengguna/daftar-pengguna') ?>" >
-              <i class="fas fa-user"></i>
+              <i class="fas fa-users"></i>
               <p class="d-lg-none d-xl-none">Manajemen Pengguna</p>
           </a>
           </li>

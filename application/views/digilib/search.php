@@ -78,7 +78,7 @@ $(document).ready(function() {
                     {
                         data: null,
                         render: function(data) {
-                            return `<center><a href="<?= base_url('buku/detil-buku/') ?>${data.id}"><i class="fa fa-search"></i></a></center>`
+                            return `<center><a href="<?= base_url('buku/detil-buku/') ?>${data.id}" rel="tooltip" title="Lihat selengkapnya" data-placement="top"><i class="fa fa-search"></i></a></center>`
                         }
                     }
             ],
