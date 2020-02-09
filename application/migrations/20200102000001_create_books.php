@@ -57,6 +57,15 @@ class Migration_Create_Books extends CI_Migration
                     'created_at' => [
                         'type'         => 'INT',
                         'constraint'   => 11
+                    ],
+                    'updated_at' => [
+                        'type'         => 'INT',
+                        'constraint'   => 11
+                    ],
+                    'deleted' => [
+                        'type'         => 'INT',
+                        'constraint'   => 1,
+                        'default'      => 0
                     ]
                 ]
             );

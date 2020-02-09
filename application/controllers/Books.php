@@ -6,7 +6,7 @@ class Books extends MY_Controller
         'header'  => 'asides/header',
         'footer'  => 'asides/footer',
         'logout'  => 'asides/logout',
-        'sidebar'  => 'asides/sidebar',
+        'login'  => 'asides/login',
         'topbar'  => 'asides/topbar',
         'sticky_footer'  => 'asides/sticky_footer'
     ];
@@ -15,9 +15,6 @@ class Books extends MY_Controller
     {
         parent::__construct();
 
-        if (!@$this->session->userdata['is_logged_in']) {
-            redirect('/auth', 'refresh');
-        }
 
         $this->load->model('buku_model');
     }
@@ -36,6 +33,10 @@ class Books extends MY_Controller
      */
     public function data_buku()
     {
+
+        if (!@$this->session->userdata['is_logged_in']) {
+            redirect('/', 'refresh');
+        }
         
     }
 
@@ -46,9 +47,7 @@ class Books extends MY_Controller
     public function detil($id)
     {
         $data = $this->buku_model->get($id);
-
         $this->data['buku'] = $data;
-        $this->data['books'] = json_encode($data);
-        
+        $this->data['books'] = json_encode($data);        
     }
 }

@@ -15,3 +15,8 @@ function validateData(data, field) {
         return (false);
     }
 }
+
+$('#cari').change(() => {
+    $('#table').DataTable()
+        .search($('#cari').val()).draw();
+})

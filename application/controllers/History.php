@@ -6,7 +6,7 @@ class History extends MY_Controller
         'header'  => 'asides/header',
         'footer'  => 'asides/footer',
         'logout'  => 'asides/logout',
-        'sidebar'  => 'asides/sidebar',
+        'login'  => 'asides/login',
         'topbar'  => 'asides/topbar',
         'sticky_footer'  => 'asides/sticky_footer'
     ];
@@ -15,7 +15,7 @@ class History extends MY_Controller
         parent::__construct();
 
         if (!@$this->session->userdata['is_logged_in']) {
-            redirect('/auth', 'refresh');
+            redirect('/', 'refresh');
         }
 
         $this->load->model(['user_model', 'history_model', 'buku_model']);

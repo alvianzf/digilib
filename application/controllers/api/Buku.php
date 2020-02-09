@@ -51,10 +51,10 @@ class Buku extends REST_Controller
      */
     public function history_post($book_id)
     {
-        $user_id = $this->session->userdata['user_detail']->id;
+        $user_id = @$this->session->userdata['user_detail']->id;
 
         $data = [
-            'user_id'   => $user_id,
+            'user_id'   => $user_id ? $user_id : 0,
             'book_id'   => $book_id,
             'created_at'=> time()
         ];

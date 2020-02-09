@@ -99,6 +99,14 @@ class Migration_Create_Users extends CI_Migration
                     'user_details',
                     [
                         [
+                            'id'        => 3,
+                            'user_id'   => 0,
+                            'nama'      => 'Pengguna Umum',
+                            'kelas'     => 'umum',
+                            'nomor_kontak'  => '----',
+                            'created_at'=> time()
+                        ],
+                        [
                             'id'        => 1,
                             'user_id'   => 1,
                             'nama'      => 'Pustakawan',

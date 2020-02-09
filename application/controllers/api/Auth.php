@@ -33,8 +33,7 @@ class Auth extends REST_Controller
      */
     public function logout_get()
     {
-        unset($this->session->userdata['is_logged_in']);
-
+        session_destroy();
         return $this->response(true, 200);
     }
 

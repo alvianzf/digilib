@@ -5,7 +5,9 @@
         <div class="row">
             <div class="col-md-2">
                 <div class="thumbnail-box" id="cover-data">
-                    <img src="<?= base_url($buku->foto_cover_path) ?>" width="100%" class="thumbnail">
+                    <a href="<?= base_url($buku->foto_cover_path) ?>" target="_blank">
+                        <img src="<?= base_url($buku->foto_cover_path) ?>" width="100%" class="thumbnail">
+                    </a>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12">
