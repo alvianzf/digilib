@@ -32,7 +32,7 @@
             </div>
             <div class="col-md-4">
                 <center>
-                    <a onclick="countDownload(<?= $buku->id ?>)" target="_blank" class="text-success" style="font-size: 2em;" download>
+                    <a onclick="countDownload(<?= $buku->id ?>)" target="_blank" class="text-success" style="font-size: 2em;" download rel="tooltip" title="Download <?= $buku->judul_buku ?>" data-placement="top">
                         <i class="fas fa-download"></i>
                         <p>Unduh PDF</p>
                     </a>
@@ -55,7 +55,7 @@
 function countDownload(id) {
 
     window.location.href = "<?= base_url($buku->path) ?>"
-    
+
     $.post("<?= api('buku/history') . $buku->id ?>")
     .then(res => {
         window.location.reload(false)
