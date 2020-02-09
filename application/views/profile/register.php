@@ -1,87 +1,89 @@
-<h1>Tambah Pengguna Baru</h1>
+<div class="page-header">
+    <img src="<?= base_url() ?>assets/img/dots.png" class="dots">
+    <img src="<?= base_url() ?>assets/img/path4.png" class="path">
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Daftar Pengguna Baru
+            </div>
+            <div class="card-body">
+                
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        Nama Lengkap
+                    </div>
+                    <div class="col-md-10 col-sm-12">
+                        <div class="form-label-group">
+                            <input type="text" id="nama" placeholder="Nama Lengkap" class="form-control">
+                            <label for="nama">Nama Lengkap</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        Kelas
+                    </div>
+                    <div class="col-md-10 col-sm-12">
+                        <div class="form-label-group">
+                            <input type="text" id="kelas" placeholder="Kelas" class="form-control">
+                            <label for="kelas">Kelas</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        Nomor Kontak
+                    </div>
+                    <div class="col-md-10 col-sm-12">
+                        <div class="form-label-group">
+                            <input type="tel" min="0" id="nomor_kontak" placeholder="Nomor Kontak" class="form-control">
+                            <label for="nomor_kontak">Nomor Kontak</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
 
-<hr />
+        <br />
 
-<div class="card">
-    <div class="card-header">
-        Daftar Pengguna Baru
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        Username
+                    </div>
+                    <div class="col-md-10 col-sm-12">
+                        <div class="form-label-group">
+                            <input type="text" id="username" class="form-control" placeholder="Username">
+                            <label for="username">Username</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        Password
+                    </div>
+                    <div class="col-md-10 col-sm-12">
+                        <div class="form-label-group">
+                            <input type="password" id="password" class="form-control" placeholder="********" required>
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9 col-sm-12">
+            
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <button id="save" class="btn btn-danger btn-block"><i class="fa fa-save"></i> Simpan</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <div class="card-body">
-        
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-2 col-sm-12">
-                Nama Lengkap
-            </div>
-            <div class="col-md-10 col-sm-12">
-                <div class="form-label-group">
-                    <input type="text" id="nama" placeholder="Nama Lengkap" class="form-control">
-                    <label for="nama">Nama Lengkap</label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2 col-sm-12">
-                Kelas
-            </div>
-            <div class="col-md-10 col-sm-12">
-                <div class="form-label-group">
-                    <input type="text" id="kelas" placeholder="Kelas" class="form-control">
-                    <label for="kelas">Kelas</label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2 col-sm-12">
-                Nomor Kontak
-            </div>
-            <div class="col-md-10 col-sm-12">
-                <div class="form-label-group">
-                    <input type="tel" min="0" id="nomor_kontak" placeholder="Nomor Kontak" class="form-control">
-                    <label for="nomor_kontak">Nomor Kontak</label>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-</div>
-
-<br />
-
-<div class="card">
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-2 col-sm-12">
-                Username
-            </div>
-            <div class="col-md-10 col-sm-12">
-                <div class="form-label-group">
-                    <input type="text" id="username" class="form-control" placeholder="Username">
-                    <label for="username">Username</label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2 col-sm-12">
-                Password
-            </div>
-            <div class="col-md-10 col-sm-12">
-                <div class="form-label-group">
-                    <input type="password" id="password" class="form-control" placeholder="********" required>
-                    <label for="password">Password</label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-9 col-sm-12">
-    
-            </div>
-            <div class="col-md-3 col-sm-12">
-                <button id="save" class="btn btn-danger btn-block"><i class="fa fa-save"></i> Simpan</button>
-            </div>
-        </div>
-    </div>
-
 </div>
 
 <script>
@@ -93,7 +95,7 @@
     const password      = $('#password').val();
 
      if (validateData(username, "Username") && validateData(password, "Password")) {
-        if (validateData(nama, 'Nama') && validateData(kelas, 'Nelas') && validateNumber(nomor_kontak, 'Nomor Kontak')) {
+        if (validateData(nama, 'Nama') && validateData(kelas, 'Kelas') && validateNumber(nomor_kontak, 'Nomor Kontak')) {
             const data = {nama, kelas, nomor_kontak}
             const user = {username, password}
 
@@ -109,6 +111,10 @@
                         $('#nomor_kontak').val('');
                         $('#username').val('');
                         $('#password').val('');
+
+                        setTimeout(() => {
+                            window.href.location = "<?= base_url('pengguna/daftar-pengguna') ?>"
+                        }, 1000);
                     })
                     .catch(err => {
                         console.log(err);

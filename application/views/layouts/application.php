@@ -10,18 +10,11 @@
 <?= @$yield_sidebar ?>
 
 
-<div id="content-wrapper">
-
-  <div class="container-fluid">
-
-<?= $yield ?>
-
-<?= @$yield_sticky_footer ?>
+<div class="wrapper">
+  <?= $yield ?>      
 </div>
-
-</div>
-<!-- /#wrapper -->
 
 <?= @$yield_logout ?>
+<?= @$yield_login ?>
 
 <?= @$yield_footer ?>

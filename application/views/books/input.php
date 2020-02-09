@@ -1,101 +1,89 @@
-<h1>Input Data Buku</h1>
-<p>Form untuk melakukan input data buku di perpustakaan digital</p>
-
-<hr />
-
-<div class="card">
-    <div class="card-header">
-        Form Buku
-    </div>
-    <div class="card-body">
-        <div class="row form-row">
-            <div class="col-md-2 col-xs-12">
-                Judul Buku
+<div class="page-header">
+    <img src="<?= base_url() ?>assets/img/dots.png" class="dots">
+    <img src="<?= base_url() ?>assets/img/path4.png" class="path">
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Form Buku
             </div>
-            <div class="col-md-10 col-xs-12">
-                <div class="form-label-group">
-                    <input type="text" id="judul_buku" class="form-control">
-                    <label for="judul_buku">Judul Buku</label>
+            <div class="card-body">
+                <div class="row form-row">
+                    <div class="col-md-2 col-xs-12">
+                        Judul Buku
+                    </div>
+                    <div class="col-md-10 col-xs-12">
+                            <input type="text" id="judul_buku" class="form-control" placeholder="Judul Buku">
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="row form-row">
-            <div class="col-md-2 col-xs-12">
-                Kategori Buku
-            </div>
-            <div class="col-md-10 col-xs-12">
-                <div class="form-label-group">
-                    <select class="form-control js-select2" id="kategori">
-                        <option val="" selected default>Pilih Kategori</option>
-                        <option>Umum</option>
-                        <option>Mesin</option>
-                        <option>Konstruksi</option>
-                        <option>Listik</option>
-                        <option>Auto CAD</option>
-                        <option>Kendaraan Ringan</option>
-                        <option>Elektro</option>
-                    </select>
+                <div class="row form-row">
+                    <div class="col-md-2 col-xs-12">
+                        Kategori Buku
+                    </div>
+                    <div class="col-md-10 col-xs-12">
+                        <select class="form-control js-select2" id="kategori">
+                            <option val="" selected default>Pilih Kategori</option>
+                            <option>Umum</option>
+                            <option>Mesin</option>
+                            <option>Konstruksi</option>
+                            <option>Listik</option>
+                            <option>Auto CAD</option>
+                            <option>Kendaraan Ringan</option>
+                            <option>Elektro</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="row form-row">
-            <div class="col-md-2 col-xs-12">
-                Nama Pengarang Buku
-            </div>
-            <div class="col-md-10 col-xs-12">
-                <div class="form-label-group">
-                    <input type="text" id="pengarang" class="form-control">
-                    <label for="pengarang">Nama Pengarang Buku</label>
+                <div class="row form-row">
+                    <div class="col-md-2 col-xs-12">
+                        Nama Pengarang Buku
+                    </div>
+                    <div class="col-md-10 col-xs-12">
+                            <input type="text" id="pengarang" class="form-control" placeholder="Pengarang">
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="row form-row">
-            <div class="col-md-2 col-xs-12">
-            Ringkasan Buku
-            </div>
-            <div class="col-md-10 col-xs-12">
-                <div class="form-label-group">
-                    <textarea type="text" id="ringkasan" class="form-control"></textarea>
+                <div class="row form-row">
+                    <div class="col-md-2 col-xs-12">
+                    Ringkasan Buku
+                    </div>
+                    <div class="col-md-10 col-xs-12">
+                            <textarea type="text" id="ringkasan" class="form-control" placeholder="Ringkasan"></textarea>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <hr />
-
-        <div class="row form-row">
-            <div class="col-md-2 col-xs-12">
-                <div class="thumbnail-box" id="cover-data">
-                    <p class="text-info thumbnail"><i class="fas fa-book"></i>
-                    <br />
-                    Cover Buku</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-12">
-                Upload Cover :
-                <p class="text-muted">Ukuran maksimal <strong>10 MB</strong>. Ekstensi png, jpg, atau jpeg</p>
-                <input type="file" id="cover">
                 <hr />
 
-                Input File pdf:
-                <p class="text-muted">Ukuran maksimal <strong>10 MB</strong>. Ekstensi PDF</p>
-                <input type="file" id="pdf">
+                <div class="row form-row">
+                    <div class="col-md-2 col-xs-12">
+                        <div class="thumbnail-box" id="cover-data">
+                            <p class="text-info thumbnail"><i class="fas fa-book"></i>
+                            <br />
+                            Cover Buku</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        Upload Cover :
+                        <p class="text-muted">Ukuran maksimal <strong>10 MB</strong>. Ekstensi png, jpg, atau jpeg</p>
+                        <input type="file" id="cover">
+                        <hr />
 
-            </div>
-            <div class="col-md-3 col-sm-12">
+                        Input File pdf:
+                        <p class="text-muted">Ukuran maksimal <strong>10 MB</strong>. Ekstensi PDF</p>
+                        <input type="file" id="pdf">
 
-            </div>
-            <div class="col-md-4 col-sm-12">
-                <button class="btn btn-primary btn-block" id="simpan"><i class="fas fa-fw fa-save"></i> Simpan</button>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
 
-                <button class="btn btn-success btn-block" id="cari"><i class="fas fa-fw fa-list"></i> Daftar Buku</button>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <button class="btn btn-primary btn-block" id="simpan"><i class="fas fa-fw fa-save"></i> Simpan</button>
+
+                        <button class="btn btn-success btn-block" id="cari"><i class="fas fa-fw fa-list"></i> Daftar Buku</button>
+                    </div>
+                </div>
             </div>
         </div>
-
-
     </div>
 </div>
-
 <script>
 $(document).ready(function() {
     $('.js-select2').select2();
@@ -110,6 +98,7 @@ $('#cover').change(() => {
 
             reader.onload = e => {
                 $('#cover-data').html(`<img src="${e.target.result}" width="100%">`);
+                $('#cover-data > img').addClass('thumbnail');
             }
             
             reader.readAsDataURL(file)
@@ -161,25 +150,21 @@ $('#simpan').click(() => {
     form_data.append('pdf', pdf)
 
     $.ajax({
-    url : "<?= api('buku/tambah') ?>",
-    type: "POST",
-    data : form_data,
-    processData: false,
-    contentType: false,
-    success:function(){
-        toastr.success('Berhasil menambahkan data');
-        $('#judul_buku').val('')
-        $('#kategori').val('').trigger('change');
-        $('#pengarang').val('')
-        $('#pdf').val('')
-        $('#cover').val('')
-        $('#cover-data').html('<p class="text-info thumbnail"><i class="fas fa-book"></i><br />Cover Buku</p>');
-    },
-    error: function(jqXHR, textStatus, errorThrown){
-        //if fails    
-        toastr.error('Gagal menambahkan data') 
-    }
-});
+        url : "<?= api('buku/tambah') ?>",
+        type: "POST",
+        data : form_data,
+        processData: false,
+        contentType: false,
+        success:function(){
+            toastr.success('Berhasil menambahkan data');
+            
+            window.location.href= "<?= base_url('cari-buku') ?>";
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            //if fails    
+            toastr.error('Gagal menambahkan data') 
+        }
+    });
 });
 
 $('#cari').click(() => {
@@ -195,7 +180,7 @@ $('#cari').click(() => {
     .thumbnail-box {
         width: 150px;
         height: 200px;
-        border: 3px dotted black;
+        border: 3px dotted white;
         padding: 5px;
         position: relative;
         text-align: center;
@@ -207,5 +192,9 @@ $('#cari').click(() => {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+
+    select .form-control {
+        color: black;
     }
 </style>

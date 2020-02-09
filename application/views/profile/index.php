@@ -1,100 +1,100 @@
-<h1>Profil Ku</h1>
-<p>Gunakan fitur ini untuk mengubah data dan password</p>
+<div class="page-header">
+    <img src="<?= base_url() ?>assets/img/dots.png" class="dots">
+    <img src="<?= base_url() ?>assets/img/path4.png" class="path">
+    <div class="container">
 
-<hr />
-
-
-<div class="card">
-    <div class="card-header">
-        Selamat datang kembali, <i class="fas fa-fw fa-user"></i> <strong><i id="nama-pengguna"><?= $user->nama ?></i></strong>
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-2 col-sm-12">
-                Nama Lengkap
+        <div class="card">
+            <div class="card-header">
+                Selamat datang kembali, <i class="fas fa-fw fa-user"></i> <strong><i id="nama-pengguna"><?= $user->nama ?></i></strong>
             </div>
-            <div class="col-md-10 col-sm-12">
-                <div class="form-label-group">
-                    <input type="text" id="nama" placeholder="Nama Lengkap" class="form-control" value="<?= $user->nama ?>">
-                    <label for="nama">Nama Lengkap</label>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        Nama Lengkap
+                    </div>
+                    <div class="col-md-10 col-sm-12">
+                        <div class="form-label-group">
+                            <input type="text" id="nama" placeholder="Nama Lengkap" class="form-control" value="<?= $user->nama ?>">
+                            <label for="nama">Nama Lengkap</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        Kelas
+                    </div>
+                    <div class="col-md-10 col-sm-12">
+                        <div class="form-label-group">
+                            <input type="text" id="kelas" placeholder="Kelas" class="form-control" value="<?= $user->kelas ?>">
+                            <label for="kelas">Kelas</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        Nomor Kontak
+                    </div>
+                    <div class="col-md-10 col-sm-12">
+                        <div class="form-label-group">
+                            <input type="tel" min="0" id="nomor_kontak" placeholder="Nomor Kontak" class="form-control" value="<?= $user->nomor_kontak ?>">
+                            <label for="nomor_kontak">Nomor Kontak</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9 col-sm-12">
+            
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <button id="save-profile" class="btn btn-success btn-block"><i class="fa fa-save"></i> Simpan</button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-2 col-sm-12">
-                Kelas
+
+        <hr />
+
+        <div class="card">
+            <div class="card-header">
+                Ubah informasi untuk pengguna: <i class="fas fa-fw fa-user"></i id="nama-user"> <strong><?= $userdata->username ?></strong>
             </div>
-            <div class="col-md-10 col-sm-12">
-                <div class="form-label-group">
-                    <input type="text" id="kelas" placeholder="Kelas" class="form-control" value="<?= $user->kelas ?>">
-                    <label for="kelas">Kelas</label>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        Username
+                    </div>
+                    <div class="col-md-10 col-sm-12">
+                        <div class="form-label-group">
+                            <input type="text" id="username" class="form-control" placeholder="Username"  value="<?= $userdata->username ?>">
+                            <label for="username">Username</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        Password
+                    </div>
+                    <div class="col-md-10 col-sm-12">
+                        <div class="form-label-group">
+                            <input type="password" id="password" class="form-control" placeholder="Password" required>
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9 col-sm-12">
+            
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <button id="save" class="btn btn-danger btn-block"><i class="fa fa-save"></i> Simpan</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2 col-sm-12">
-                Nomor Kontak
-            </div>
-            <div class="col-md-10 col-sm-12">
-                <div class="form-label-group">
-                    <input type="tel" min="0" id="nomor_kontak" placeholder="Nomor Kontak" class="form-control" value="<?= $user->nomor_kontak ?>">
-                    <label for="nomor_kontak">Nomor Kontak</label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-9 col-sm-12">
-    
-            </div>
-            <div class="col-md-3 col-sm-12">
-                <button id="save-profile" class="btn btn-success btn-block"><i class="fa fa-save"></i> Simpan</button>
-            </div>
+
         </div>
     </div>
 </div>
 
-<hr />
-
-<div class="card">
-    <div class="card-header">
-        Ubah informasi untuk pengguna: <i class="fas fa-fw fa-user"></i id="nama-user"> <strong><?= $userdata->username ?></strong>
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-2 col-sm-12">
-                Username
-            </div>
-            <div class="col-md-10 col-sm-12">
-                <div class="form-label-group">
-                    <input type="text" id="username" class="form-control" placeholder="Username"  value="<?= $userdata->username ?>">
-                    <label for="username">Username</label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2 col-sm-12">
-                Password
-            </div>
-            <div class="col-md-10 col-sm-12">
-                <div class="form-label-group">
-                    <input type="password" id="password" class="form-control" placeholder="Password" required>
-                    <label for="password">Password</label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-9 col-sm-12">
-    
-            </div>
-            <div class="col-md-3 col-sm-12">
-                <button id="save" class="btn btn-danger btn-block"><i class="fa fa-save"></i> Simpan</button>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<br />
 
 <script>
  $('#save-profile').click(function (e) { 

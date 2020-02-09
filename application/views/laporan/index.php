@@ -1,20 +1,38 @@
-<h1>Laporan Perpustakaan</h1>
-<p>laporan statistika penggunaan sistem perpustakaan SMKN 3 Tanjungpinang</p>
-
-<hr />
-
-<div class="table-responsive">
-    <table id="table" class="table table-striped table-condensed table-hover" width="100%">
-        <thead>
-            <th></th>
-            <th>Judul Buku</th>
-            <th>Pengarang</th>
-            <th>Kategori</th>
-            <th>Jumlah Unduhan</th>
-            <th>Terakhir diunduh pada</th>
-            <th>Terakhir diunduh oleh</th>
-        </thead>
-    </table>
+<div class="page-header">
+    <img src="<?= base_url() ?>assets/img/dots.png" class="dots">
+    <img src="<?= base_url() ?>assets/img/path4.png" class="path">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <label><i class="fas fa-info-circle"></i></label>
+                <p class="page-description">
+                    Ini adalah laporan statistika penggunaan aplikasi. Silakan pilih dari tabel di bawah, atau ketik pencarian anda di <i>form</i> yang telah disediakan dan tekan <strong>Enter</strong> untuk memulai pencarian. Secara <i>default</i>, tabel berurut berdasarkan kepopuleran buku.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                <label><i class="fas fa-search"></i> Cari Buku</label>
+                <input type="text" id="cari" class="form-control" placeholder="Judul, Pengarang, atau Kategori">
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <table id="table" class="table table-striped table-hover" width="100%">
+                    <thead>
+                        <th></th>
+                        <th>Judul Buku</th>
+                        <th>Pengarang</th>
+                        <th>Kategori</th>
+                        <th>Jumlah Unduhan</th>
+                        <th>Terakhir diunduh pada</th>
+                        <th>Terakhir diunduh oleh</th>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -37,6 +55,7 @@ $(document).ready(function() {
                     targets: -1,
                     orderable: false
                 }],
+                order: [[4, 'desc'], [5, 'desc']],
                 columns: [
                 {
                     data: 'foto_cover_path',
@@ -67,19 +86,28 @@ $(document).ready(function() {
                     orderable: true
                 },
                 {
-                    data: 'terakhir',
+                    data: null,
                     searchable: true,
-                    orderable: true
+                    orderable: true,
+                    render: (data) => {
+                        return data.terakhir ? data.terakhir : '-'
+                    }
                 },
                 {
-                    data: 'oleh',
+                    data: null,
                     searchable: true,
-                    orderable: true
+                    orderable: true,
+                    render: (data) => {
+                        return data.terakhir ? (data.oleh ? data.oleh : 'Pengguna Umum') : '-'
+                    }
                 },
 
             ],
 
-    }).draw();
+        initComplete: function(settings) {
+            $('.dataTables_filter').hide()
+        }
 
+    }).draw();
 });
 </script>

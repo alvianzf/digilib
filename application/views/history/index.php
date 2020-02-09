@@ -1,17 +1,37 @@
-<h1>Sejarah Download Saya</h1>
-<p>Halaman ini menampilkan sejarah file yang telah didownload oleh pengguna <strong><?= $this->session->userdata['user_detail']->user_data[0]->nama ?></strong></p>
+<div class="page-header">
+    <img src="<?= base_url() ?>assets/img/dots.png" class="dots">
+    <img src="<?= base_url() ?>assets/img/path4.png" class="path">
 
-<hr />
+    <div class="container">
 
-<div class="table-responsive">
-    <table id="table" class="table table-striped" width="100%">
-        <thead>
-            <th>Tanggal</th>
-            <th>Judul Buku</th>
-            <th>Kategori</th>
-            <th>Pengarang</th>
-        </thead>
-    </table>
+    <div class="row">
+            <div class="col-md-6">
+                <label><i class="fas fa-info-circle"></i></label>
+                <p class="page-description">
+                    Gunakan fitur ini untuk mencari riwayat unduhan anda. Silakan pilih dari tabel di bawah, atau ketik pencarian anda di <i>form</i> yang telah disediakan dan tekan <strong>Enter</strong> untuk memulai pencarian.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                <label><i class="fas fa-search"></i> Cari di Riwayat Saya</label>
+                <input type="text" id="cari" class="form-control" placeholder="Judul, Pengarang, atau Kategori">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                    <table id="table" class="table table-striped" width="100%">
+                        <thead>
+                            <th>Tanggal</th>
+                            <th>Judul Buku</th>
+                            <th>Kategori</th>
+                            <th>Pengarang</th>
+                        </thead>
+                    </table>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 <script>
@@ -42,9 +62,12 @@ $(document).ready(function() {
                     }
                 },
                 {
-                    data: 'judul_buku',
+                    data: null,
                     searchable: true,
-                    orderable: true
+                    orderable: true,
+                    render: (data) => {
+                        return `<a href="<?= base_url('buku/detil-buku') ?>/${data.id_buku}">${data.judul_buku}</a>`
+                    }
                 },
                 {
                     data: 'kategori',
@@ -58,7 +81,9 @@ $(document).ready(function() {
                 },
 
             ],
+            initComplete: function(settings) {
+                $('.dataTables_filter').hide()
+            }
     }).draw();
 });
-
 </script>

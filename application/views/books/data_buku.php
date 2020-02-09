@@ -1,18 +1,35 @@
-<h1>Daftar Buku</h1>
-
-<hr />
-
-<div class="table-responsive">
-    <table class="table" id="table" width="100%">
-        <thead>
-            <th>Judul Buku</th>
-            <th>Kategori Buku</th>
-            <th>Pengarang</th>
-            <th width="10%" style="text-align: center;"><i class="fa fa-cog"></i></th>
-        </thead>
-    </table>
+<div class="page-header">
+    <img src="<?= base_url() ?>/assets/img/dots.png" class="dots">
+    <img src="<?= base_url() ?>/assets/img/path4.png" class="path">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <label><i class="fas fa-info-circle"></i></label>
+                <p class="page-description">
+                    Gunakan fitur ini untuk mencari buku yang anda inginkan. Silakan pilih dari tabel di bawah, atau ketik pencarian anda di <i>form</i> yang telah disediakan dan tekan <strong>Enter</strong> untuk memulai pencarian.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                <label><i class="fas fa-search"></i> Cari Buku</label>
+                <input type="text" id="cari" class="form-control" placeholder="Judul, Pengarang, atau Kategori">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <table class="table" id="table" width="100%">
+                    <thead>
+                        <th>Judul Buku</th>
+                        <th>Kategori Buku</th>
+                        <th>Pengarang</th>
+                        <th width="10%" style="text-align: center;"><i class="fa fa-cog"></i></th>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
-
 <script>
 
 $(document).ready(function() {
@@ -60,8 +77,10 @@ $(document).ready(function() {
                         </center>`
                     }
                 },
-
             ],
+            initComplete: function(settings) {
+                $('.dataTables_filter').hide()
+        }
     }).draw();
 });
 
