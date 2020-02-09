@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <label><i class="fas fa-info-circle"></i></label>
+                <label><i class="fas fa-info-circle"></i> Manajemen Pengguna</label>
                 <p class="page-description">
                     <a class="btn btn-info" href="<?= base_url('pengguna/register') ?>"><i class="fas fa-user"></i> Register pengguna baru</a>
                 </p>

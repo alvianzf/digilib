@@ -6,7 +6,7 @@
 
     <div class="row">
             <div class="col-md-6">
-                <label><i class="fas fa-info-circle"></i></label>
+                <label><i class="fas fa-info-circle"></i> Riwayat Unduhan Saya</label>
                 <p class="page-description">
                     Gunakan fitur ini untuk mencari riwayat unduhan anda. Silakan pilih dari tabel di bawah, atau ketik pencarian anda di <i>form</i> yang telah disediakan dan tekan <strong>Enter</strong> untuk memulai pencarian.
                 </p>

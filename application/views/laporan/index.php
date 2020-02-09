@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <label><i class="fas fa-info-circle"></i></label>
+                <label><i class="fas fa-info-circle"></i> Laporan Statistik Penggunaan</label>
                 <p class="page-description">
                     Ini adalah laporan statistika penggunaan aplikasi. Silakan pilih dari tabel di bawah, atau ketik pencarian anda di <i>form</i> yang telah disediakan dan tekan <strong>Enter</strong> untuk memulai pencarian. Secara <i>default</i>, tabel berurut berdasarkan kepopuleran buku.
                 </p>

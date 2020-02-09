@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <label><i class="fas fa-info-circle"></i></label>
+                <label><i class="fas fa-info-circle"></i> Cari Buku di Koleksi</label>
                 <p class="page-description">
                     Gunakan fitur ini untuk mencari buku yang anda inginkan. Silakan pilih dari tabel di bawah, atau ketik pencarian anda di <i>form</i> yang telah disediakan dan tekan <strong>Enter</strong> untuk memulai pencarian.
                 </p>

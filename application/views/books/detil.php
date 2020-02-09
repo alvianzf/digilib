@@ -4,11 +4,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2">
-                <div class="thumbnail-box" id="cover-data">
-                    <a href="<#" data-toggle="modal" data-target="#coverModal">
+                <a href="<#" data-toggle="modal" data-target="#coverModal">
+                    <div class="thumbnail-box" id="cover-data" data-toggle="tooltip" title="Klik untuk melihat gambar cover lebih jelas">
                         <img src="<?= base_url($buku->foto_cover_path) ?>" width="100%" class="thumbnail">
-                    </a>
-                </div>
+                    </div>
+                </a>
             </div>
             <div class="col-md-6 col-sm-12">
                 Ringkasan Buku:
