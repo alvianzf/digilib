@@ -1,0 +1,17 @@
+input[type=modal] {
+    color: black;
+}
+
+input[type=modal]:focus {
+    color: gray;
+}
+
+input[name="modal-password"] {
+    color: black;
+    font-family: caption;
+}
+
+input[name="modal-password"]:focus {
+    color: gray;
+    font-family: caption;
+}
