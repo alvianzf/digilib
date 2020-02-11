@@ -73,17 +73,17 @@ $(document).ready(function() {
 
                         let id = data.id;
 
-                        let changeStatus = `<i class="fas fa-check text-success"></i>`
+                        let changeStatus = `<i class="fas fa-times" data-toggle="tooltip" title="Not Approved"></i>`
 
                         console.log(data.approved)
 
                         if (data.approved == 1) {
-                            changeStatus = `<i class="fas fa-times"></i>`
+                            changeStatus = `<i class="fas fa-check text-success" data-toggle="tooltip" title="Approved"></i>`
                         }
 
                         return `
                         <center>
-                            <a href="#" onclick="approveBuku(${id})" data-toggle="tooltip" title="Approve">${changeStatus}</a> |
+                            <a href="#" onclick="approveBuku(${id})">${changeStatus}</a> |
                             <a href="<?=base_url('buku/detil-buku/')?>${id}" data-toggle="tooltip" title="Lihat Buku"><i class="fa fa-search text-info"></i></a> | 
                             <a href="#" onclick="deleteBuku(${id})" data-toggle="tooltip" title="Hapus"><i class="fa fa-trash text-danger"></i></a>
                         </center>`
