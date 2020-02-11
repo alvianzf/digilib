@@ -11,6 +11,16 @@ class Dt extends CI_Controller
 
     public function buku()
     {
+        $this->datatables->select('*')->from('data_buku')->where('approved', 1);
+
+        $this->output
+            ->set_content_type('application/json')
+            ->set_status_header(200)
+            ->set_output($this->datatables->generate('json', 'UTF-8', true));
+    }
+
+    public function buku_list()
+    {
         $this->datatables->select('*')->from('data_buku');
 
         $this->output
@@ -51,7 +61,8 @@ class Dt extends CI_Controller
                         ->from('data_buku')
                         ->add_column('jumlah', '$1', 'count_books(id)')
                         ->add_column('oleh', '$1', 'downloaded_by(id)')
-                        ->edit_column('terakhir', '$1', 'last_downloaded(id)');
+                        ->edit_column('terakhir', '$1', 'last_downloaded(id)')
+                        ->where('approved', 1);
 
         $this->output
             ->set_content_type('application/json')

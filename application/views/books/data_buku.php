@@ -43,7 +43,7 @@ $(document).ready(function() {
                     info: 'Menunjukkan _START_ sampai _END_ dari total _TOTAL_ data'
                 },
                 ajax: {
-                    url: "<?= site_url('dt/buku')?>",
+                    url: "<?= site_url('dt/buku_list')?>",
                     type: "POST",
                 },
                 columnDefs: [{
@@ -67,13 +67,25 @@ $(document).ready(function() {
                     orderable: true
                 },
                 {
-                    data: 'id',
+                    data: null,
                     className: 'dt-body-center',
-                    render: (id) => {
+                    render: (data) => {
+
+                        let id = data.id;
+
+                        let changeStatus = `<i class="fas fa-check text-success"></i>`
+
+                        console.log(data.approved)
+
+                        if (data.approved == 1) {
+                            changeStatus = `<i class="fas fa-times"></i>`
+                        }
+
                         return `
                         <center>
-                            <a href="<?=base_url('buku/detil-buku/')?>${id}"><i class="fa fa-search text-info"></i></a> | 
-                            <a href="#" onclick="deleteBuku(${id})"><i class="fa fa-trash text-danger"></i></a>
+                            <a href="#" onclick="approveBuku(${id})" data-toggle="tooltip" title="Approve">${changeStatus}</a> |
+                            <a href="<?=base_url('buku/detil-buku/')?>${id}" data-toggle="tooltip" title="Lihat Buku"><i class="fa fa-search text-info"></i></a> | 
+                            <a href="#" onclick="deleteBuku(${id})" data-toggle="tooltip" title="Hapus"><i class="fa fa-trash text-danger"></i></a>
                         </center>`
                     }
                 },
@@ -103,5 +115,15 @@ function deleteBuku(id) {
             }
         }
     });
+}
+
+function approveBuku(id) {
+    $.post('<?= api('buku/approve_buku') ?>', {id})
+    .then(res => {
+        toastr.success('berhasil menyetujui data buku');
+        window.location.reload(true);
+    }).catch(err => {
+        toastr.error('Gagal menghapus data');
+    })
 }
 </script>

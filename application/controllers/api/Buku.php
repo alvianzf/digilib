@@ -81,6 +81,25 @@ class Buku extends REST_Controller
         return $this->response(api_error($id), 500);
     } 
 
+
+
+    /**
+     * Approve data buku
+     */
+    function approve_buku_post() {
+        $id = $this->post('id');
+
+        $status =  $this->buku_model->get($id)->approved;
+        $changed = 0;
+        $changed = $status == 0 ? 1 : 0;
+
+        if ($this->buku_model->update($id, ['approved' => $changed])) {
+            return $this->response(api_success($changed), 200);
+        }
+
+        return $this->response(api_error($id), 500);
+    } 
+
     /**
      * Hitung jumlah download
      */
